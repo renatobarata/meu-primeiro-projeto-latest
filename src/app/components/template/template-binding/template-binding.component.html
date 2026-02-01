@@ -8,6 +8,11 @@
 
 <hr/>
 <h3>Property Binding</h3>
-<!-- <element [property]="value></element>" -->
-<button [disabled]="isDisabled">Button</button>
-<img [src]="srcValue" [alt]="name" [title]="name"/>
+<!-- <element [property]="value"></element> -->
+<p><button [disabled]="isDisabled">Button</button></p>
+<p><img [src]="srcValue" [alt]="name" [title]="name"/></p>
+
+<hr/>
+<h3>Atribute Binding</h3>
+<!-- <element [attr.attribute-you-are-targeting]="value"></element> -->
+<p [attr.title]="name" [attr.aria-Label]="name">Renato Barata</p>
