@@ -1,9 +1,9 @@
 <h2>Template</h2>
 
 <h3>Text Interpolation</h3>
-<p>{{ name }} - {{ age }} - {{ sum(1, 2) }}</p>
-<p>{{ 1 + age }}</p>
-<p>{{ age < 1 }}</p>
+<p>{{ name }} - {{ age() }} - {{ sum(1, 2) }}</p>
+<p>{{ 1 + age() }}</p>
+<p>{{ age() < 1 }}</p>
 <p>{{ condition }}</p>
 
 <hr/>
@@ -16,3 +16,8 @@
 <h3>Atribute Binding</h3>
 <!-- <element [attr.attribute-you-are-targeting]="value"></element> -->
 <p [attr.title]="name" [attr.aria-Label]="name">Renato Barata</p>
+
+<hr/>
+<h3>Class and Style Binding</h3>
+<p [class.background-red]="age() >= 32" [class.background-blue]="age() < 32" >{{ name }}</p>
+<p [style.text-decoration]="isTextDecoration()">{{ age() }}</p>

@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 
 @Component({
   selector: 'app-template-binding',
@@ -10,15 +10,19 @@ import { Component } from '@angular/core';
 })
 export class TemplateBindingComponent {
   public name = 'Dener Troquatte';
-  public age = 32;
-  public condition = this.age < 1 ? "Teste" : "Teste2";
+  public age = signal(32);
+  public condition = this.age() < 1 ? "Teste" : "Teste2";
   public isDisabled = true;
   public srcValue = 'https://angular.io/assets/images/logos/angular/angular.png';
+
+  public isTextDecoration = computed(() =>
+    this.age() >= 32 ? 'underline' : 'none'
+);
 
   constructor() {
     setTimeout(() => {
       this.name = 'Renato Barata';
-      this.age = 28;
+      this.age.set(28);
       this.isDisabled = false;
     }, 2000);
   }
