@@ -42,5 +42,16 @@
 <hr/>
 <h3>Two Way Binding</h3>
 <input [(ngModel)]="name"/>
-
 {{ name }}
+
+<hr/>
+<h3>Diretivas de Atributo</h3>
+<div [ngClass]="{ 'background-red': age() >=32, 'background-blue': age() < 32 }">
+  Classes Condicionais
+</div>
+
+<div [ngStyle]="{
+      color: age() >=32 ? 'green' : 'red',
+      'font-size': age() >=32 ? '20px' : '30px'}">
+  Estilo Dinâmico
+</div>
