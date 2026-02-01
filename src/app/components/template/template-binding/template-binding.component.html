@@ -1,7 +1,13 @@
 <h2>Template</h2>
+
 <h3>Text Interpolation</h3>
 <p>{{ name }} - {{ age }} - {{ sum(1, 2) }}</p>
 <p>{{ 1 + age }}</p>
 <p>{{ age < 1 }}</p>
 <p>{{ condition }}</p>
 
+<hr/>
+<h3>Property Binding</h3>
+<!-- <element [property]="value></element>" -->
+<button [disabled]="isDisabled">Button</button>
+<img [src]="srcValue" [alt]="name" [title]="name"/>
