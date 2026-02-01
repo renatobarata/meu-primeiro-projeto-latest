@@ -30,4 +30,23 @@ export class TemplateBindingComponent {
   public sum(val1: number, val2: number): number {
     return val1 + val2;
   }
+
+  public sumAge() {
+    this.age.set(this.age() + 1);
+  }
+
+  public subAge() {
+    this.age.set(this.age() - 1);
+  }
+
+  public onKeyDown(event: Event) {
+    return console.log(event);
+  }
+
+  public onMouseMove(event: MouseEvent) {
+    return console.log({
+      clientx: event.clientX,
+      clienty: event.clientY
+  });
+  }
 }

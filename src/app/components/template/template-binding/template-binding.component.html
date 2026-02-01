@@ -6,11 +6,13 @@
 <p>{{ age() < 1 }}</p>
 <p>{{ condition }}</p>
 
+
 <hr/>
 <h3>Property Binding</h3>
 <!-- <element [property]="value"></element> -->
 <p><button [disabled]="isDisabled">Button</button></p>
 <p><img [src]="srcValue" [alt]="name" [title]="name"/></p>
+
 
 <hr/>
 <h3>Atribute Binding</h3>
@@ -21,3 +23,17 @@
 <h3>Class and Style Binding</h3>
 <p [class.background-red]="age() >= 32" [class.background-blue]="age() < 32" >{{ name }}</p>
 <p [style.text-decoration]="isTextDecoration()">{{ age() }}</p>
+
+<hr/>
+<h3>Event Binding</h3>
+<!--
+  <element (targetEventName)="statement"></element>
+-->
+<button (click)="sumAge()">+</button>
+<button (click)="subAge()">-</button>
+<input (keydown.shift.t)="onKeyDown($event)" />
+
+<div
+  style="background: red; width: 300px; height: 300px; margin-top: 10px;"
+  (mousemove)="onMouseMove($event)">
+</div>
