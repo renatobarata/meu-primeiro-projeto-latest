@@ -13,6 +13,8 @@ export class TemplateControlFlowComponent {
 
   public isTrue = false;
 
+  public itens = [{ name: 'Dener Troquatte' }];
+
   public loadingData$: Observable<string[]> = of([
     'item 1',
     'item 2',
@@ -21,5 +23,9 @@ export class TemplateControlFlowComponent {
 
   public trackByFn(index: number) {
     return index;
+  }
+
+  public addNewName(value: string) {
+    return this.itens.push({ name: value });
   }
 }

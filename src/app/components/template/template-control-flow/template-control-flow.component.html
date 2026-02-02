@@ -1,8 +1,8 @@
 <hr />
 <h2>Control Flow</h2>
-<h3>IF</h3>
+<h3>31. IF</h3>
 
-<!-- Forma Nova -->
+<!-- Forma Nova 31. If -->
 @if (isTrue) {
   Sim 1 é === 1
 } @else if (1 === 1) {
@@ -11,7 +11,7 @@
   Não está correto
 }
 
-<!-- Forma Antiga -->
+<!-- Forma Antiga 31. If -->
  <ng-container *ngIf="isTrue; else isFalse">
   <p>Dener</p>
   <p>Maria</p>
@@ -23,9 +23,9 @@
 
 <hr />
 <h2>Control Flow</h2>
-<h3>FOR</h3>
+<h3>32. FOR</h3>
 
-<!-- Forma Nova IF e For-->
+<!-- Forma Nova 32. IF e For -->
 @if (loadingData$ | async; as data) {
   <ul>
     @for (item of data; track item) {
@@ -36,14 +36,14 @@
   <p>Carregando...</p>
 }
 
-<!-- Forma Nova For-->
+<!-- Forma Nova 32. For-->
 <ul>
   @for(item of loadingData$ | async; track item) {
     <li>{{ item }}</li>
   }
 </ul>
 
-<!-- Forma Antiga If e For -->
+<!-- Forma Antiga 32. If e For -->
 <ng-container *ngIf="loadingData$ | async as data; else loading">
   <ul>
     <ng-container *ngFor="let item of data; trackBy: trackByFn">
@@ -55,3 +55,55 @@
 <ng-template #loading>
   <p>Carregando...</p>
 </ng-template>
+
+<hr />
+<h2>Control Flow</h2>
+<h3>33. FOR e seus valores</h3>
+
+<!-- Nova forma 33. For e seus valores -->
+@for (
+  item of itens; track item.name;
+  let i = $index;
+  let c = $count;
+  let f = $first;
+  let l = $last;
+  let e = $even;
+  let o = $odd;
+) {
+  <p>{{ item.name }}</p>
+  <p>Index: {{ i }}</p>
+  <p>Count: {{ c }}</p>
+  <p>First: {{ f }}</p>
+  <p>Last: {{ l }}</p>
+  <p>Even: {{ e }}</p>
+  <p>Odd: {{ o }}</p>
+  <br />
+}
+
+<hr />
+
+<!-- Forma antiga 33. For e seus valores -->
+<ng-container
+  *ngFor="
+    let item of itens;
+    let i = index;
+    let c = count;
+    let f = first;
+    let l = last;
+    let e = even;
+    let o = odd;
+    trackBy: trackByFn;
+  "
+>
+  <p>{{ item.name }}</p>
+  <p>Index: {{ i }}</p>
+  <p>Count: {{ c }}</p>
+  <p>First: {{ f }}</p>
+  <p>Last: {{ l }}</p>
+  <p>Even: {{ e }}</p>
+  <p>Odd: {{ o }}</p>
+  <br />
+</ng-container>
+
+<input #name type="text"/>
+<button (click)="addNewName(name.value)">Add Name</button>
