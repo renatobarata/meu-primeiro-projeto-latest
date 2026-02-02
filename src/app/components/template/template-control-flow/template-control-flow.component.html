@@ -20,3 +20,38 @@
  <ng-template #isFalse>
    <p>Não está correto</p>
  </ng-template>
+
+<hr />
+<h2>Control Flow</h2>
+<h3>FOR</h3>
+
+<!-- Forma Nova IF e For-->
+@if (loadingData$ | async; as data) {
+  <ul>
+    @for (item of data; track item) {
+      <li>{{ item }}</li>
+    }
+  </ul>
+} @else {
+  <p>Carregando...</p>
+}
+
+<!-- Forma Nova For-->
+<ul>
+  @for(item of loadingData$ | async; track item) {
+    <li>{{ item }}</li>
+  }
+</ul>
+
+<!-- Forma Antiga If e For -->
+<ng-container *ngIf="loadingData$ | async as data; else loading">
+  <ul>
+    <ng-container *ngFor="let item of data; trackBy: trackByFn">
+      <li>{{ item }}</li>
+    </ng-container>
+  </ul>
+</ng-container>
+
+<ng-template #loading>
+  <p>Carregando...</p>
+</ng-template>
