@@ -107,3 +107,29 @@
 
 <input #name type="text"/>
 <button (click)="addNewName(name.value)">Add Name</button>
+
+<hr />
+<h2>Control Flow</h2>
+<h3>34. FOR e empty</h3>
+
+<!-- Forma antiga 34. For - @empty -->
+<ul>
+  @for (item of itens; track item.name) {
+    <li>{{ item.name }}</li>
+  } @empty {
+    <li>Não contém valores.</li>
+  }
+</ul>
+
+<!-- Forma antiga 34. For - @empty -->
+<ul>
+  <ng-container *ngIf="itens.length === 0; else itensExist">
+    <li>Não contém valores.</li>
+  </ng-container>
+
+  <ng-template #itensExist>
+    <ng-container *ngFor="let item of itens">
+      <li>{{ item.name }}</li>
+    </ng-container>
+  </ng-template>
+</ul>
