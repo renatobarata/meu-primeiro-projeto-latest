@@ -1,17 +1,19 @@
-import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { AsyncPipe, NgFor, NgIf, NgSwitch, NgSwitchCase, NgSwitchDefault } from '@angular/common';
 import { Component } from '@angular/core';
 import { delay, Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-template-control-flow',
   standalone: true,
-  imports: [AsyncPipe, NgIf, NgFor],
+  imports: [AsyncPipe, NgIf, NgFor, NgSwitch, NgSwitchCase, NgSwitchDefault],
   templateUrl: './template-control-flow.component.html',
   styleUrl: './template-control-flow.component.scss'
 })
 export class TemplateControlFlowComponent {
 
   public isTrue = false;
+
+  public switchCondition = 'B';
 
   public itens: Array<{ name: string }> = [{ name: 'Dener Troquatte' }];
 
