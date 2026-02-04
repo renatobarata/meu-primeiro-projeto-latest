@@ -18,8 +18,9 @@
 -->
 
 <h2>Deferrable Views</h2>
+<button (click)="isTrue = true">Add True</button>
 
-@defer (on interaction; prefetch on idle) {
+@defer (when loadingData$ | async) {
   <app-new-component />
 } @placeholder {
   <p>Mostrar antes de carregar algo.</p>
